@@ -1,1 +1,781 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lenovo Elite | Skala Enterprise</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <style>
+        /* CSS VARIABLE - TEMA LEBIH TERANG & ELEGAN */
+        :root {
+            --lenovo-red: #E2231A;
+            --lenovo-red-hover: #c41b12;
+            --bg-main: #141414; /* Lebih terang dari hitam pekat */
+            --bg-secondary: #212121;
+            --bg-card: #2a2a2a;
+            --text-main: #ffffff;
+            --text-muted: #d1d1d1; /* Abu-abu terang agar mudah dibaca */
+            --glass-border: rgba(255,255,255,0.08);
+        }
 
+        /* GLOBAL STYLING */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* CUSTOM SCROLLBAR */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--bg-main); }
+        ::-webkit-scrollbar-thumb { background: #444; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--lenovo-red); }
+
+        /* NAVBAR */
+        .navbar {
+            background: rgba(20, 20, 20, 0.95) !important;
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+        .nav-link { color: var(--text-muted) !important; font-weight: 500; transition: 0.3s; }
+        .nav-link:hover { color: var(--text-main) !important; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
+
+        /* CAROUSEL HERO */
+        .carousel-item {
+            height: 90vh;
+            min-height: 600px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .carousel-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(90deg, rgba(20,20,20,1) 0%, rgba(20,20,20,0.4) 100%);
+        }
+        .carousel-caption {
+            bottom: 30%;
+            text-align: left;
+            left: 10%;
+            right: 10%;
+        }
+
+        /* CARD STYLING */
+        .card-laptop {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+        }
+        .card-laptop:hover {
+            transform: translateY(-12px);
+            border-color: var(--lenovo-red);
+            box-shadow: 0 15px 35px rgba(226, 35, 26, 0.15);
+        }
+        .card-text-muted { color: var(--text-muted); }
+
+        /* BUTTONS */
+        .btn-lenovo {
+            background-color: var(--lenovo-red);
+            color: white;
+            font-weight: 600;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        .btn-lenovo:hover {
+            background-color: var(--lenovo-red-hover);
+            color: white;
+            box-shadow: 0 5px 15px rgba(226, 35, 26, 0.4);
+            transform: scale(1.02);
+        }
+
+        /* UTILITIES */
+        .text-red { color: var(--lenovo-red); }
+        .form-control, .form-select {
+            background-color: var(--bg-secondary) !important;
+            border: 1px solid var(--glass-border) !important;
+            color: var(--text-main) !important;
+        }
+        .form-control:focus, .form-select:focus {
+            box-shadow: 0 0 0 0.25rem rgba(226, 35, 26, 0.25);
+            border-color: var(--lenovo-red) !important;
+        }
+
+        /* OFFCANVAS & MODALS */
+        .offcanvas, .modal-content { background-color: var(--bg-secondary); color: var(--text-main); }
+        .border-bottom-glass { border-bottom: 1px solid var(--glass-border); }
+        
+        /* ACCORDION */
+        .accordion-item { background-color: var(--bg-card); border: 1px solid var(--glass-border); }
+        .accordion-button { background-color: var(--bg-card); color: var(--text-main); }
+        .accordion-button:not(.collapsed) { background-color: rgba(226, 35, 26, 0.1); color: var(--lenovo-red); }
+        .accordion-button::after { filter: invert(1); }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top py-3 shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bolder fs-4" href="#">LENOVO<span class="text-red">.</span></a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="bi bi-list fs-1 text-white"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link px-3" href="#home">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#series">Seri Edukasi</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#katalog">Katalog Lengkap</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#support">Dukungan</a></li>
+                </ul>
+                <div class="d-flex gap-3 mt-3 mt-lg-0 align-items-center">
+                    <button class="btn btn-outline-light position-relative border-0 rounded-circle" data-bs-toggle="offcanvas" data-bs-target="#favOffcanvas">
+                        <i class="bi bi-heart fs-5"></i>
+                        <span id="favBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger d-none shadow">0</span>
+                    </button>
+                    <button class="btn btn-outline-light position-relative border-0 rounded-circle" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas">
+                        <i class="bi bi-bag fs-5"></i>
+                        <span id="cartBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger d-none shadow">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#home" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#home" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#home" data-bs-slide-to="2"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active" style="background-image: url('https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&q=80&w=1920');">
+                <div class="carousel-overlay"></div>
+                <div class="carousel-caption">
+                    <span class="badge bg-danger mb-3 fs-6 px-3 py-2">NEW ARRIVAL</span>
+                    <h1 class="display-3 fw-bolder mb-3">Dominasi Arena dengan <span class="text-red">Legion</span></h1>
+                    <p class="lead text-light mb-4 col-md-8">Prosesor generasi terbaru, termal ColdFront, dan grafis NVIDIA RTX. Tidak ada kompromi untuk kemenangan.</p>
+                    <a href="#katalog" class="btn btn-lenovo btn-lg px-5 py-3 rounded-pill">Eksplorasi Legion</a>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1541807084-5c52b6b3adef?auto=format&fit=crop&q=80&w=1920');">
+                <div class="carousel-overlay"></div>
+                <div class="carousel-caption">
+                    <span class="badge bg-secondary mb-3 fs-6 px-3 py-2">BISNIS & KORPORAT</span>
+                    <h1 class="display-3 fw-bolder mb-3">Ketangguhan <span class="text-red">ThinkPad</span></h1>
+                    <p class="lead text-light mb-4 col-md-8">Teruji secara militer. Keamanan tingkat enterprise. Dirancang untuk para eksekutif yang tidak pernah diam.</p>
+                    <a href="#katalog" class="btn btn-light btn-lg px-5 py-3 rounded-pill text-dark fw-bold">Lihat Seri Bisnis</a>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&q=80&w=1920');">
+                <div class="carousel-overlay"></div>
+                <div class="carousel-caption">
+                    <span class="badge bg-info text-dark mb-3 fs-6 px-3 py-2">KREATIVITAS</span>
+                    <h1 class="display-3 fw-bolder mb-3">Fleksibilitas <span class="text-red">Yoga</span></h1>
+                    <p class="lead text-light mb-4 col-md-8">Layar ganda OLED, desain 2-in-1, dan warna yang sangat akurat. Bebaskan imajinasimu.</p>
+                    <a href="#katalog" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill">Temukan Yoga</a>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#home" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#home" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </header>
+
+    <section id="series" class="container py-5 mt-5">
+        <div class="text-center mb-5">
+            <h6 class="text-red fw-bold tracking-wide">PANDUAN LENOVO</h6>
+            <h2 class="display-6 fw-bold">Kenali DNA Perangkat Anda</h2>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="accordion shadow-sm" id="accordionSeries">
+                    <div class="accordion-item mb-3 rounded-4 overflow-hidden border-0">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button fw-bold fs-5 py-4" type="button" data-bs-toggle="collapse" data-bs-target="#colThinkpad">
+                                <i class="bi bi-briefcase-fill me-3 fs-4 text-red"></i> ThinkPad - Laptop Bisnis Premium
+                            </button>
+                        </h2>
+                        <div id="colThinkpad" class="accordion-collapse collapse show" data-bs-parent="#accordionSeries">
+                            <div class="accordion-body px-5 py-4">
+                                <p class="card-text-muted">Seri ThinkPad adalah standar emas untuk komputasi bisnis sejak puluhan tahun lalu.</p>
+                                <ul class="card-text-muted lh-lg">
+                                    <li><strong class="text-white">X Series (X1 Carbon, X1 Yoga):</strong> Kasta tertinggi. Tertipis, teringan, menggunakan material premium seperti serat karbon atau titanium.</li>
+                                    <li><strong class="text-white">T Series (T14, T16):</strong> Kuda beban korporat. Fokus pada daya tahan baterai, kelengkapan port, dan stabilitas.</li>
+                                    <li><strong class="text-white">P Series (P1, P16):</strong> Mobile Workstation. Dirancang untuk Insinyur, Arsitek, dan Editor Video yang membutuhkan sertifikasi ISV dan GPU khusus (NVIDIA RTX Ada Generation).</li>
+                                    <li><strong class="text-white">Z Series (Z13, Z16):</strong> Desain modern ramah lingkungan, performa dari AMD Ryzen PRO, menargetkan generasi milenial dan Gen Z.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item mb-3 rounded-4 overflow-hidden border-0">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold fs-5 py-4" type="button" data-bs-toggle="collapse" data-bs-target="#colIdeapad">
+                                <i class="bi bi-laptop me-3 fs-4 text-red"></i> IdeaPad - Everyday Computing
+                            </button>
+                        </h2>
+                        <div id="colIdeapad" class="accordion-collapse collapse" data-bs-parent="#accordionSeries">
+                            <div class="accordion-body px-5 py-4 card-text-muted">
+                                <ul class="lh-lg">
+                                    <li><strong class="text-white">Slim Series (Slim 3, 5, 7):</strong> Varian paling populer. Angka lebih besar menunjukkan kualitas material (metal) dan layar yang lebih baik.</li>
+                                    <li><strong class="text-white">Pro Series (Pro 5):</strong> Dilengkapi layar beresolusi lebih tinggi (2.5K+) dan kartu grafis mandiri, cocok untuk desain grafis ringan.</li>
+                                    <li><strong class="text-white">Flex Series:</strong> Layar sentuh yang bisa ditekuk 360 derajat. Solusi 2-in-1 yang sangat fleksibel.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item rounded-4 overflow-hidden border-0">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold fs-5 py-4" type="button" data-bs-toggle="collapse" data-bs-target="#colOther">
+                                <i class="bi bi-controller me-3 fs-4 text-red"></i> Legion & Yoga - Gaming & Kreativitas
+                            </button>
+                        </h2>
+                        <div id="colOther" class="accordion-collapse collapse" data-bs-parent="#accordionSeries">
+                            <div class="accordion-body px-5 py-4 card-text-muted lh-lg">
+                                <p><strong class="text-white fs-5">Legion (Gaming):</strong><br> Brand gaming eksklusif Lenovo. <em>Legion Pro</em> berfokus pada TGP (Total Graphics Power) maksimal untuk e-sports. <em>Legion Slim</em> ditujukan untuk gamer sekaligus kreator yang butuh bodi lebih tipis namun tetap kuat.</p>
+                                <hr class="border-secondary my-4">
+                                <p><strong class="text-white fs-5">Yoga (Premium Consumer):</strong><br> Pionir laptop konvertibel. <em>Yoga 9i</em> menggunakan layar ganda OLED. <em>Yoga Slim 7i Carbon</em> memiliki bobot kurang dari 1 Kg, menjadikannya sangat portabel.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="katalog" class="container py-5 my-5">
+        <div class="row align-items-end mb-5">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <h6 class="text-red fw-bold">Eksplorasi Perangkat</h6>
+                <h2 class="display-6 fw-bold m-0">Katalog Eksklusif Lenovo</h2>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="row g-2">
+                    <div class="col-md-5">
+                        <div class="input-group">
+                            <span class="input-group-text bg-secondary border-0 text-white"><i class="bi bi-search"></i></span>
+                            <input type="text" class="form-control border-0" id="searchInput" placeholder="Cari model..." onkeyup="processFilters()">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <select class="form-select border-0" id="categoryFilter" onchange="processFilters()">
+                            <option value="all">Semua Kategori</option>
+                            <option value="thinkpad">ThinkPad</option>
+                            <option value="ideapad">IdeaPad</option>
+                            <option value="legion">Legion</option>
+                            <option value="yoga">Yoga</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-select border-0" id="sortFilter" onchange="processFilters()">
+                            <option value="default">Urutkan</option>
+                            <option value="price-low">Harga: Rendah</option>
+                            <option value="price-high">Harga: Tinggi</option>
+                            <option value="name-a">Nama: A-Z</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4" id="productGrid">
+            </div>
+    </section>
+
+    <section class="py-5" style="background-color: var(--bg-secondary);">
+        <div class="container my-5">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Apa Kata Mereka?</h2>
+                <p class="card-text-muted">Ulasan nyata dari pengguna produk Lenovo.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card bg-main border-0 p-4 h-100" style="background-color: var(--bg-main);">
+                        <div class="d-flex text-warning mb-3"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                        <p class="card-text-muted fst-italic">"ThinkPad X1 Carbon mengubah cara saya bekerja. Sangat ringan, keyboardnya tidak tertandingi, dan baterainya awet seharian penuh."</p>
+                        <h6 class="fw-bold mt-auto pt-3 border-top border-secondary">- Budi Santoso, CTO</h6>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-main border-0 p-4 h-100" style="background-color: var(--bg-main);">
+                        <div class="d-flex text-warning mb-3"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></div>
+                        <p class="card-text-muted fst-italic">"Sistem pendingin Legion Pro 7i sungguh gila. Saya bermain AAA games dengan setting ultra dan suhunya tetap terjaga dengan baik."</p>
+                        <h6 class="fw-bold mt-auto pt-3 border-top border-secondary">- Reza Pahlevi, Gamer</h6>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-main border-0 p-4 h-100" style="background-color: var(--bg-main);">
+                        <div class="d-flex text-warning mb-3"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                        <p class="card-text-muted fst-italic">"IdeaPad Slim 5 sangat worth the price! Material metalnya terasa premium untuk budget pelajar. Sangat direkomendasikan."</p>
+                        <h6 class="fw-bold mt-auto pt-3 border-top border-secondary">- Anisa Fitri, Mahasiswi</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="support" class="container py-5 my-5">
+        <div class="row bg-card rounded-4 p-5 border border-secondary" style="background-color: var(--bg-card);">
+            <div class="col-lg-5 mb-5 mb-lg-0 pe-lg-5 border-end-lg border-secondary">
+                <h2 class="fw-bold mb-4">Butuh Bantuan Memilih?</h2>
+                <p class="card-text-muted mb-4">Tim konsultan spesialis kami siap membantu Anda menemukan perangkat yang paling sesuai dengan kebutuhan spesifik Anda. Hubungi kami untuk penawaran khusus korporasi atau pertanyaan seputar garansi.</p>
+                <div class="d-flex align-items-center mb-3">
+                    <div class="bg-danger text-white rounded-circle p-3 me-3"><i class="bi bi-telephone-fill fs-5"></i></div>
+                    <div><h6 class="mb-0">Hotline Resmi</h6><p class="mb-0 card-text-muted">0800-1-LENOVO</p></div>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div class="bg-danger text-white rounded-circle p-3 me-3"><i class="bi bi-envelope-fill fs-5"></i></div>
+                    <div><h6 class="mb-0">Email Support</h6><p class="mb-0 card-text-muted">id_support@lenovo.com</p></div>
+                </div>
+            </div>
+            <div class="col-lg-7 ps-lg-5">
+                <form onsubmit="event.preventDefault(); showToast('Pesan Terkirim! Tim kami akan segera menghubungi Anda.'); this.reset();">
+                    <div class="row g-3">
+                        <div class="col-md-6"><input type="text" class="form-control p-3 rounded-3" placeholder="Nama Lengkap" required></div>
+                        <div class="col-md-6"><input type="email" class="form-control p-3 rounded-3" placeholder="Alamat Email" required></div>
+                        <div class="col-12"><select class="form-select p-3 rounded-3"><option>Pertanyaan Pembelian</option><option>Klaim Garansi</option><option>Dukungan Teknis</option></select></div>
+                        <div class="col-12"><textarea class="form-control p-3 rounded-3" rows="4" placeholder="Tuliskan pesan Anda secara detail..." required></textarea></div>
+                        <div class="col-12"><button type="submit" class="btn btn-lenovo w-100 py-3 rounded-3 fs-5">Kirim Pesan Dukungan</button></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="pt-5" style="background-color: #0d0d0d; border-top: 1px solid var(--glass-border);">
+        <div class="container pb-5">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6">
+                    <h3 class="fw-bold mb-4">LENOVO<span class="text-red">.</span></h3>
+                    <p class="card-text-muted mb-4 pe-4">Menghadirkan teknologi cerdas (Smarter Technology for All) yang menginspirasi kreativitas, meningkatkan produktivitas, dan memberdayakan setiap individu di seluruh dunia.</p>
+                    <div class="d-flex gap-3 fs-4">
+                        <a href="#" class="text-white text-decoration-none"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-white text-decoration-none"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-white text-decoration-none"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="text-white text-decoration-none"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="fw-bold mb-4">Portofolio</h5>
+                    <ul class="list-unstyled card-text-muted lh-lg">
+                        <li><a href="#" class="text-decoration-none text-reset hover-red">Laptop ThinkPad</a></li>
+                        <li><a href="#" class="text-decoration-none text-reset hover-red">Laptop Legion</a></li>
+                        <li><a href="#" class="text-decoration-none text-reset hover-red">Laptop Yoga</a></li>
+                        <li><a href="#" class="text-decoration-none text-reset hover-red">Laptop IdeaPad</a></li>
+                        <li><a href="#" class="text-decoration-none text-reset hover-red">Aksesoris PC</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="fw-bold mb-4">Layanan</h5>
+                    <ul class="list-unstyled card-text-muted lh-lg">
+                        <li><a href="#" class="text-decoration-none text-reset hover-red">Cek Status Garansi</a></li>
+                        <li><a href="#" class="text-decoration-none text-reset hover-red">Pusat Unduhan Driver</a></li>
+                        <li><a href="#" class="text-decoration-none text-reset hover-red">Lokasi Service Center</a></li>
+                        <li><a href="#" class="text-decoration-none text-reset hover-red">Forum Komunitas</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="fw-bold mb-4">Berlangganan Newsletter</h5>
+                    <p class="card-text-muted">Dapatkan info perilisan produk terbaru, diskon eksklusif, dan tips teknologi langsung ke kotak masuk Anda.</p>
+                    <div class="input-group mb-3 mt-4">
+                        <input type="email" class="form-control p-3 border-secondary" placeholder="Alamat Email Anda">
+                        <button class="btn btn-lenovo px-4" type="button">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="py-4 text-center border-top border-secondary" style="background-color: #000;">
+            <p class="mb-0 card-text-muted small">&copy; 2026 Lenovo Universe Showcase - Engineered & Designed by Eric Febriansah.</p>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="productModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header border-bottom-glass p-4">
+                    <h4 class="modal-title fw-bold" id="detailTitle">Nama Produk</h4>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="row g-0">
+                        <div class="col-md-6 bg-white d-flex align-items-center justify-content-center p-4">
+                            <img id="detailImage" src="" class="img-fluid rounded" alt="Product Image">
+                        </div>
+                        <div class="col-md-6 p-4 d-flex flex-column">
+                            <span class="badge bg-danger w-auto align-self-start mb-2 px-3 py-2" id="detailCategory">Kategori</span>
+                            <h2 class="text-red fw-bolder mb-3" id="detailPrice">Rp 0</h2>
+                            <p class="card-text-muted" id="detailDesc">Deskripsi produk di sini.</p>
+                            
+                            <h6 class="fw-bold mt-3 mb-2 border-bottom border-secondary pb-2">Spesifikasi Teknis</h6>
+                            <ul class="list-unstyled card-text-muted small lh-lg mb-4" id="detailSpecs">
+                                </ul>
+                            
+                            <div class="mt-auto pt-3 border-top border-secondary">
+                                <button id="detailAddToCartBtn" class="btn btn-lenovo w-100 py-3 rounded-pill fs-6 fw-bold">
+                                    <i class="bi bi-cart-plus me-2"></i> Tambahkan ke Keranjang
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas">
+        <div class="offcanvas-header border-bottom-glass py-4">
+            <h5 class="offcanvas-title fw-bold fs-4"><i class="bi bi-bag-check-fill me-2 text-red"></i>Keranjang Anda</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column p-4">
+            <div id="cartItems" class="flex-grow-1 overflow-auto pe-2">
+                </div>
+            <div class="mt-4 pt-4 border-top border-secondary">
+                <div class="d-flex justify-content-between align-items-center fw-bold mb-4">
+                    <span class="fs-5 card-text-muted">Total Tagihan:</span>
+                    <span id="cartTotal" class="text-red fs-3">Rp 0</span>
+                </div>
+                <button class="btn btn-lenovo w-100 py-3 rounded-3 fs-5" onclick="openCheckout()" data-bs-dismiss="offcanvas">Proses Pembayaran</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="favOffcanvas">
+        <div class="offcanvas-header border-bottom-glass py-4">
+            <h5 class="offcanvas-title fw-bold fs-4"><i class="bi bi-heart-fill me-2 text-red"></i>Daftar Impian</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body p-4" id="favItems">
+            </div>
+    </div>
+
+    <div class="modal fade" id="checkoutModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-secondary shadow-lg">
+                <div class="modal-header border-bottom-glass p-4">
+                    <h4 class="modal-title fw-bold"><i class="bi bi-shield-lock-fill text-success me-2"></i>Checkout Aman</h4>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-5">
+                    <form id="checkoutForm" onsubmit="processCheckout(event)">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <h6 class="fw-bold mb-3 border-bottom border-secondary pb-2">Data Pengiriman</h6>
+                                <div class="mb-3"><input type="text" class="form-control p-3" placeholder="Nama Lengkap Sesuai KTP" required></div>
+                                <div class="mb-3"><input type="tel" class="form-control p-3" placeholder="Nomor WhatsApp" required></div>
+                                <div class="mb-3"><textarea class="form-control p-3" rows="3" placeholder="Alamat Lengkap (Jalan, RT/RW, Kec, Kota, Kode Pos)" required></textarea></div>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="fw-bold mb-3 border-bottom border-secondary pb-2">Metode Pembayaran</h6>
+                                <div class="mb-3">
+                                    <select class="form-select p-3 mb-3" required>
+                                        <option value="">Pilih Bank Transfer (Virtual Account)</option>
+                                        <option value="bca">BCA Virtual Account</option>
+                                        <option value="mandiri">Mandiri Virtual Account</option>
+                                        <option value="bni">BNI Virtual Account</option>
+                                    </select>
+                                    <select class="form-select p-3" required>
+                                        <option value="">Durasi Pengiriman</option>
+                                        <option value="reg">Reguler (2-3 Hari) - Rp 50.000</option>
+                                        <option value="next">Next Day (1 Hari) - Rp 120.000</option>
+                                    </select>
+                                </div>
+                                <div class="alert bg-main border border-secondary text-center py-4 mt-4 rounded-3">
+                                    <span class="card-text-muted d-block mb-2">Total yang harus dibayar:</span>
+                                    <strong id="checkoutTotal" class="text-red fs-2">Rp 0</strong>
+                                </div>
+                                <button type="submit" class="btn btn-success w-100 py-3 rounded-3 fs-5 fw-bold mt-2"><i class="bi bi-credit-card me-2"></i> Konfirmasi Pesanan</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3 z-3">
+        <div id="liveToast" class="toast align-items-center text-bg-dark border-secondary shadow-lg rounded-pill" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000">
+            <div class="d-flex px-3 py-1">
+                <div class="toast-body fs-6 fw-semibold" id="toastMessage">
+                    Pesan notifikasi.
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- 1. ENTERPRISE DATABASE ---
+        const products = [
+            // THINKPAD
+            { id: 101, name: "ThinkPad X1 Carbon Gen 11", category: "thinkpad", sub: "X Series", desc: "Flagship laptop bisnis berbahan serat karbon ultra ringan.", price: 32500000, img: "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?auto=format&fit=crop&q=80&w=600", specs: { cpu: "Intel Core i7-1355U", ram: "16GB LPDDR5", storage: "1TB PCIe Gen4 SSD", display: "14\" WUXGA (1920x1200) IPS", gpu: "Intel Iris Xe Graphics" } },
+            { id: 102, name: "ThinkPad T14 Gen 4", category: "thinkpad", sub: "T Series", desc: "Kuda beban korporat, seimbang antara performa dan durabilitas.", price: 21000000, img: "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?auto=format&fit=crop&q=80&w=600", specs: { cpu: "AMD Ryzen 7 PRO 7840U", ram: "16GB DDR5", storage: "512GB NVMe SSD", display: "14\" WUXGA IPS Anti-glare", gpu: "AMD Radeon 780M" } },
+            { id: 103, name: "ThinkPad P16 Gen 2", category: "thinkpad", sub: "P Series", desc: "Mobile workstation bertenaga monster untuk rendering 3D.", price: 45000000, img: "https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?auto=format&fit=crop&q=80&w=600", specs: { cpu: "Intel Core i9-13980HX", ram: "64GB DDR5 ECC", storage: "2TB PCIe Gen4 SSD", display: "16\" WQUXGA (3840x2400) OLED", gpu: "NVIDIA RTX 4000 Ada Generation" } },
+            { id: 104, name: "ThinkPad E14 Gen 5", category: "thinkpad", sub: "E Series", desc: "Laptop bisnis entry-level tangguh dengan keamanan enterprise.", price: 14500000, img: "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?auto=format&fit=crop&q=80&w=600", specs: { cpu: "Intel Core i5-1335U", ram: "8GB DDR4 (Upgradable)", storage: "512GB SSD", display: "14\" FHD IPS", gpu: "Intel UHD Graphics" } },
+            
+            // IDEAPAD
+            { id: 201, name: "IdeaPad Slim 5i", category: "ideapad", sub: "Slim Series", desc: "Sasis metal elegan dengan performa mumpuni untuk multitasking.", price: 12500000, img: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&q=80&w=600", specs: { cpu: "Intel Core i5-13420H", ram: "16GB LPDDR5", storage: "512GB M.2 SSD", display: "14\" WUXGA OLED", gpu: "Intel UHD Graphics" } },
+            { id: 202, name: "IdeaPad Flex 5", category: "ideapad", sub: "Flex Series", desc: "2-in-1 touchscreen adaptif untuk presentasi dan hiburan.", price: 14000000, img: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&q=80&w=600", specs: { cpu: "AMD Ryzen 7 7730U", ram: "16GB LPDDR4x", storage: "512GB SSD", display: "14\" WUXGA Touchscreen + Stylus", gpu: "AMD Radeon Graphics" } },
+            { id: 203, name: "IdeaPad Pro 5i", category: "ideapad", sub: "Pro Series", desc: "Performa tinggi untuk kreator konten dan desainer pemula.", price: 18500000, img: "https://images.unsplash.com/photo-1537498425277-c273d32ef743?auto=format&fit=crop&q=80&w=600", specs: { cpu: "Intel Core i7-13700H", ram: "16GB LPDDR5", storage: "1TB Gen4 SSD", display: "16\" 2.5K 120Hz IPS", gpu: "NVIDIA GeForce RTX 3050 6GB" } },
+            { id: 204, name: "IdeaPad Slim 3", category: "ideapad", sub: "Slim Series", desc: "Solusi terjangkau nan andal untuk pelajar dan mahasiswa.", price: 8500000, img: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&q=80&w=600", specs: { cpu: "AMD Ryzen 3 7320U", ram: "8GB LPDDR5", storage: "512GB SSD", display: "14\" FHD TN", gpu: "AMD Radeon 610M" } },
+
+            // LEGION
+            { id: 301, name: "Legion Pro 7i", category: "legion", sub: "Pro Series", desc: "Mesin gaming hardcore dengan RTX 4080 dan ColdFront.", price: 48000000, img: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&q=80&w=600", specs: { cpu: "Intel Core i9-13900HX", ram: "32GB DDR5 5600MHz", storage: "2TB PCIe Gen4", display: "16\" WQXGA 240Hz HDR", gpu: "NVIDIA GeForce RTX 4080 12GB (175W)" } },
+            { id: 302, name: "Legion Slim 7i", category: "legion", sub: "Slim Series", desc: "Laptop gaming ultra-tipis berbahan CNC aluminium premium.", price: 34000000, img: "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&q=80&w=600", specs: { cpu: "Intel Core i9-13900H", ram: "16GB DDR5", storage: "1TB SSD", display: "16\" 3.2K 165Hz IPS", gpu: "NVIDIA GeForce RTX 4070 8GB" } },
+            { id: 303, name: "Legion Pro 5", category: "legion", sub: "Pro Series", desc: "Rasio harga-dan-performa terbaik untuk gaming e-sports.", price: 26000000, img: "https://images.unsplash.com/photo-1600861194942-f88481e1d8ba?auto=format&fit=crop&q=80&w=600", specs: { cpu: "AMD Ryzen 7 7745HX", ram: "16GB DDR5", storage: "1TB NVMe", display: "16\" WQXGA 165Hz", gpu: "NVIDIA GeForce RTX 4060 8GB" } },
+
+            // YOGA
+            { id: 401, name: "Yoga Book 9i", category: "yoga", sub: "Premium", desc: "Dua layar OLED memukau untuk kreativitas tanpa batas.", price: 35000000, img: "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&q=80&w=600", specs: { cpu: "Intel Core i7-1355U", ram: "16GB LPDDR5x", storage: "1TB SSD", display: "Dual 13.3\" 2.8K OLED Touch", gpu: "Intel Iris Xe Graphics" } },
+            { id: 402, name: "Yoga Slim 7i Carbon", category: "yoga", sub: "Slim Series", desc: "Bobot di bawah 1Kg, sasis paduan magnesium dan serat karbon.", price: 22000000, img: "https://images.unsplash.com/photo-1531297172868-9f1c1ae04461?auto=format&fit=crop&q=80&w=600", specs: { cpu: "Intel Core i7-1360P", ram: "16GB LPDDR5", storage: "1TB Gen4 SSD", display: "13.3\" 2.5K 90Hz", gpu: "Intel Iris Xe Graphics" } },
+            { id: 403, name: "Yoga Pro 9i", category: "yoga", sub: "Pro Series", desc: "Laptop idaman kreator profesional dengan layar Mini-LED.", price: 32000000, img: "https://images.unsplash.com/photo-1504707748692-419802cf939d?auto=format&fit=crop&q=80&w=600", specs: { cpu: "Intel Core i9-13905H", ram: "32GB LPDDR5x", storage: "1TB Gen4 SSD", display: "16\" 3.2K Mini-LED 165Hz Touch", gpu: "NVIDIA GeForce RTX 4060" } }
+        ];
+
+        // --- 2. LOCAL STORAGE STATE MANAGEMENT ---
+        let cart = JSON.parse(localStorage.getItem('lenovo_cart')) || []; 
+        let wishlist = JSON.parse(localStorage.getItem('lenovo_wishlist')) || [];
+
+        const formatRupiah = (number) => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(number);
+
+        const showToast = (message) => {
+            document.getElementById('toastMessage').innerHTML = message;
+            const toast = new bootstrap.Toast(document.getElementById('liveToast'));
+            toast.show();
+        };
+
+        // --- 3. FILTER, SORT, & RENDER ENGINE ---
+        function processFilters() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const category = document.getElementById('categoryFilter').value;
+            const sort = document.getElementById('sortFilter').value;
+
+            // Filter
+            let filtered = products.filter(p => {
+                const matchName = p.name.toLowerCase().includes(query) || p.sub.toLowerCase().includes(query);
+                const matchCat = category === 'all' || p.category === category;
+                return matchName && matchCat;
+            });
+
+            // Sort
+            if (sort === 'price-low') filtered.sort((a, b) => a.price - b.price);
+            else if (sort === 'price-high') filtered.sort((a, b) => b.price - a.price);
+            else if (sort === 'name-a') filtered.sort((a, b) => a.name.localeCompare(b.name));
+
+            renderGrid(filtered);
+        }
+
+        function renderGrid(data) {
+            const grid = document.getElementById('productGrid');
+            grid.innerHTML = '';
+
+            if(data.length === 0) {
+                grid.innerHTML = `<div class="col-12 text-center py-5"><i class="bi bi-search fs-1 card-text-muted mb-3 d-block"></i><h4 class="card-text-muted">Laptop tidak ditemukan. Coba kata kunci lain.</h4></div>`;
+                return;
+            }
+
+            data.forEach(p => {
+                const isFav = wishlist.includes(p.id);
+                const favBtnClass = isFav ? 'text-red bg-white' : 'text-white bg-dark bg-opacity-50';
+                const favIcon = isFav ? 'bi-heart-fill' : 'bi-heart';
+
+                grid.innerHTML += `
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="card card-laptop h-100 p-3">
+                            <div class="position-relative overflow-hidden rounded-3 mb-3">
+                                <img src="${p.img}" class="w-100" style="height: 220px; object-fit: cover;" alt="${p.name}">
+                                <button class="btn btn-sm position-absolute top-0 end-0 m-2 rounded-circle shadow-sm ${favBtnClass}" style="width:35px; height:35px;" onclick="toggleFav(${p.id})">
+                                    <i class="bi ${favIcon}"></i>
+                                </button>
+                            </div>
+                            <div class="d-flex flex-column flex-grow-1">
+                                <span class="badge border border-secondary text-light w-auto align-self-start mb-2 px-2 py-1">${p.sub}</span>
+                                <h5 class="fw-bold fs-6 mb-2">${p.name}</h5>
+                                <p class="small card-text-muted flex-grow-1 mb-3">${p.desc}</p>
+                                <h5 class="text-red fw-bold mb-3">${formatRupiah(p.price)}</h5>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-outline-light btn-sm flex-grow-1" onclick="openDetailModal(${p.id})">Spesifikasi</button>
+                                    <button class="btn btn-lenovo btn-sm px-3" onclick="addToCart(${p.id})"><i class="bi bi-cart-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        // --- 4. MODAL DETAIL PRODUK ---
+        function openDetailModal(id) {
+            const p = products.find(prod => prod.id === id);
+            
+            document.getElementById('detailTitle').innerText = p.name;
+            document.getElementById('detailImage').src = p.img;
+            document.getElementById('detailCategory').innerText = p.category.toUpperCase();
+            document.getElementById('detailPrice').innerText = formatRupiah(p.price);
+            document.getElementById('detailDesc').innerText = p.desc;
+            
+            document.getElementById('detailSpecs').innerHTML = `
+                <li><i class="bi bi-cpu me-2 text-danger"></i> <strong>Prosesor:</strong> ${p.specs.cpu}</li>
+                <li><i class="bi bi-memory me-2 text-danger"></i> <strong>RAM:</strong> ${p.specs.ram}</li>
+                <li><i class="bi bi-device-hdd me-2 text-danger"></i> <strong>Storage:</strong> ${p.specs.storage}</li>
+                <li><i class="bi bi-display me-2 text-danger"></i> <strong>Layar:</strong> ${p.specs.display}</li>
+                <li><i class="bi bi-gpu-card me-2 text-danger"></i> <strong>Grafis:</strong> ${p.specs.gpu}</li>
+            `;
+
+            // Setup tombol beli di dalam modal
+            const btn = document.getElementById('detailAddToCartBtn');
+            btn.onclick = function() {
+                addToCart(p.id);
+                const modal = bootstrap.Modal.getInstance(document.getElementById('productModal'));
+                modal.hide();
+            };
+
+            const modal = new bootstrap.Modal(document.getElementById('productModal'));
+            modal.show();
+        }
+
+        // --- 5. LOGIKA KERANJANG BELANJA ---
+        function saveCart() { localStorage.setItem('lenovo_cart', JSON.stringify(cart)); updateCartUI(); }
+
+        function addToCart(id) {
+            const item = cart.find(c => c.id === id);
+            item ? item.qty++ : cart.push({ id, qty: 1 });
+            saveCart();
+            const prod = products.find(p => p.id === id);
+            showToast(`<i class="bi bi-check-circle-fill text-success me-2"></i> <strong>${prod.name}</strong> ditambahkan ke keranjang.`);
+        }
+
+        function updateQty(id, change) {
+            const item = cart.find(c => c.id === id);
+            item.qty += change;
+            if(item.qty <= 0) cart = cart.filter(c => c.id !== id);
+            saveCart();
+        }
+
+        function removeCartItem(id) {
+            cart = cart.filter(c => c.id !== id);
+            saveCart();
+        }
+
+        function updateCartUI() {
+            const cartDiv = document.getElementById('cartItems');
+            const badge = document.getElementById('cartBadge');
+            
+            cartDiv.innerHTML = '';
+            let total = 0, totalItems = 0;
+
+            if (cart.length === 0) {
+                cartDiv.innerHTML = '<div class="text-center mt-5"><i class="bi bi-cart-x fs-1 card-text-muted"></i><p class="mt-3 card-text-muted">Keranjang masih kosong.</p></div>';
+            } else {
+                cart.forEach(item => {
+                    const p = products.find(prod => prod.id === item.id);
+                    total += p.price * item.qty;
+                    totalItems += item.qty;
+
+                    cartDiv.innerHTML += `
+                        <div class="d-flex align-items-center mb-3 bg-main p-3 rounded-3 border border-secondary">
+                            <img src="${p.img}" class="rounded-2 me-3" style="width: 70px; height: 70px; object-fit: cover;">
+                            <div class="flex-grow-1">
+                                <h6 class="mb-1 fw-bold fs-6 text-truncate" style="max-width: 150px;">${p.name}</h6>
+                                <p class="text-red small fw-bold mb-0">${formatRupiah(p.price)}</p>
+                            </div>
+                            <div class="d-flex align-items-center border border-secondary rounded-pill px-2 py-1 mx-2">
+                                <button class="btn btn-sm text-white p-0 fs-5" onclick="updateQty(${p.id}, -1)">-</button>
+                                <span class="mx-3 fw-bold">${item.qty}</span>
+                                <button class="btn btn-sm text-white p-0 fs-5" onclick="updateQty(${p.id}, 1)">+</button>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+
+            document.getElementById('cartTotal').innerText = formatRupiah(total);
+            document.getElementById('checkoutTotal').innerText = formatRupiah(total);
+
+            if (totalItems > 0) {
+                badge.classList.remove('d-none'); badge.innerText = totalItems;
+            } else { badge.classList.add('d-none'); }
+        }
+
+        // --- 6. LOGIKA WISHLIST (FAVORIT) ---
+        function saveFav() { localStorage.setItem('lenovo_wishlist', JSON.stringify(wishlist)); updateFavUI(); processFilters(); }
+
+        function toggleFav(id) {
+            const index = wishlist.indexOf(id);
+            const p = products.find(prod => prod.id === id);
+            
+            if (index > -1) {
+                wishlist.splice(index, 1);
+                showToast(`<i class="bi bi-info-circle text-light me-2"></i> ${p.name} dihapus dari favorit.`);
+            } else {
+                wishlist.push(id);
+                showToast(`<i class="bi bi-heart-fill text-danger me-2"></i> ${p.name} disimpan ke favorit.`);
+            }
+            saveFav();
+        }
+
+        function updateFavUI() {
+            const favDiv = document.getElementById('favItems');
+            const badge = document.getElementById('favBadge');
+            
+            favDiv.innerHTML = '';
+
+            if (wishlist.length === 0) {
+                favDiv.innerHTML = '<div class="text-center mt-5"><i class="bi bi-heartbreak fs-1 card-text-muted"></i><p class="mt-3 card-text-muted">Belum ada laptop impian.</p></div>';
+                badge.classList.add('d-none');
+            } else {
+                badge.classList.remove('d-none'); badge.innerText = wishlist.length;
+
+                wishlist.forEach(id => {
+                    const p = products.find(prod => prod.id === id);
+                    favDiv.innerHTML += `
+                        <div class="card bg-main border-secondary mb-3 rounded-3 overflow-hidden">
+                            <div class="row g-0">
+                                <div class="col-4"><img src="${p.img}" class="img-fluid h-100" style="object-fit: cover;"></div>
+                                <div class="col-8">
+                                    <div class="card-body p-3">
+                                        <h6 class="fw-bold mb-1 fs-6">${p.name}</h6>
+                                        <p class="text-red small fw-bold mb-3">${formatRupiah(p.price)}</p>
+                                        <div class="d-flex gap-2">
+                                            <button class="btn btn-sm btn-outline-light flex-grow-1" onclick="addToCart(${p.id})">Beli</button>
+                                            <button class="btn btn-sm btn-outline-danger" onclick="toggleFav(${p.id})"><i class="bi bi-trash"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+        }
+
+        // --- 7. CHECKOUT LOGIC ---
+        let checkoutModal;
+        function openCheckout() {
+            if(cart.length === 0) { showToast('Keranjang masih kosong!'); return; }
+            checkoutModal = new bootstrap.Modal(document.getElementById('checkoutModal'));
+            checkoutModal.show();
+        }
+
+        function processCheckout(e) {
+            e.preventDefault();
+            checkoutModal.hide();
+            cart = []; saveCart();
+            showToast(`<i class="bi bi-bag-check-fill text-success fs-5 me-2"></i> Pesanan Berhasil Diproses! Invoice dikirim ke Email.`);
+            document.getElementById('checkoutForm').reset();
+        }
+
+        // INITIALIZE
+        window.onload = () => { processFilters(); updateCartUI(); updateFavUI(); };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
