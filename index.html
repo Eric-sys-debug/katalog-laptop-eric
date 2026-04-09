@@ -300,24 +300,29 @@
             </div>
             <div class="row g-4">
                 <div class="col-md-4">
-                    <div class="card bg-main border-0 p-4 h-100" style="background-color: var(--bg-main);">
-                        <div class="d-flex text-warning mb-3"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
-                        <p class="card-text-muted fst-italic">"ThinkPad X1 Carbon mengubah cara saya bekerja. Sangat ringan, keyboardnya tidak tertandingi, dan baterainya awet seharian penuh."</p>
-                        <h6 class="fw-bold mt-auto pt-3 border-top border-secondary">- Budi Santoso, CTO</h6>
+                    <div class="card bg-card border-0 p-4 h-100 shadow-sm" style="background-color: var(--bg-card);">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div class="d-flex text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                        </div>
+                        <h5 class="fw-bold text-red mb-3">ThinkPad X1 Carbon</h5>
+                        <p class="text-white fst-italic lh-lg">"Mengubah cara saya bekerja. Sangat ringan, keyboardnya tidak tertandingi, dan baterainya awet seharian penuh. Cocok untuk eksekutif yang mobile."</p>
+                        <h6 class="fw-bold text-white mt-auto pt-3 border-top border-secondary">- Budi Santoso, CTO</h6>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card bg-main border-0 p-4 h-100" style="background-color: var(--bg-main);">
+                    <div class="card bg-card border-0 p-4 h-100 shadow-sm" style="background-color: var(--bg-card);">
                         <div class="d-flex text-warning mb-3"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></div>
-                        <p class="card-text-muted fst-italic">"Sistem pendingin Legion Pro 7i sungguh gila. Saya bermain AAA games dengan setting ultra dan suhunya tetap terjaga dengan baik."</p>
-                        <h6 class="fw-bold mt-auto pt-3 border-top border-secondary">- Reza Pahlevi, Gamer</h6>
+                        <h5 class="fw-bold text-red mb-3">Legion Pro 7i</h5>
+                        <p class="text-white fst-italic lh-lg">"Sistem pendingin mesin ini sungguh gila. Saya bermain AAA games dengan setting ultra dan suhunya tetap terjaga dengan sangat baik."</p>
+                        <h6 class="fw-bold text-white mt-auto pt-3 border-top border-secondary">- Reza Pahlevi, Gamer</h6>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card bg-main border-0 p-4 h-100" style="background-color: var(--bg-main);">
+                    <div class="card bg-card border-0 p-4 h-100 shadow-sm" style="background-color: var(--bg-card);">
                         <div class="d-flex text-warning mb-3"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
-                        <p class="card-text-muted fst-italic">"IdeaPad Slim 5 sangat worth the price! Material metalnya terasa premium untuk budget pelajar. Sangat direkomendasikan."</p>
-                        <h6 class="fw-bold mt-auto pt-3 border-top border-secondary">- Anisa Fitri, Mahasiswi</h6>
+                        <h5 class="fw-bold text-red mb-3">IdeaPad Slim 5</h5>
+                        <p class="text-white fst-italic lh-lg">"Sangat worth the price! Material metalnya terasa premium untuk budget pelajar. Performa mulus untuk nugas dan nonton. Sangat direkomendasikan."</p>
+                        <h6 class="fw-bold text-white mt-auto pt-3 border-top border-secondary">- Anisa Fitri, Mahasiswi</h6>
                     </div>
                 </div>
             </div>
@@ -400,7 +405,7 @@
     </footer>
 
     <div class="modal fade" id="productModal" tabindex="-1">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
             <div class="modal-content border-0 shadow-lg">
                 <div class="modal-header border-bottom-glass p-4">
                     <h4 class="modal-title fw-bold" id="detailTitle">Nama Produk</h4>
@@ -408,19 +413,26 @@
                 </div>
                 <div class="modal-body p-0">
                     <div class="row g-0">
-                        <div class="col-md-6 bg-white d-flex align-items-center justify-content-center p-4">
+                        <div class="col-md-5 bg-white d-flex align-items-center justify-content-center p-4">
                             <img id="detailImage" src="" class="img-fluid rounded" alt="Product Image">
                         </div>
-                        <div class="col-md-6 p-4 d-flex flex-column">
+                        <div class="col-md-7 p-4 p-lg-5 d-flex flex-column">
                             <span class="badge bg-danger w-auto align-self-start mb-2 px-3 py-2" id="detailCategory">Kategori</span>
                             <h2 class="text-red fw-bolder mb-3" id="detailPrice">Rp 0</h2>
-                            <p class="card-text-muted" id="detailDesc">Deskripsi produk di sini.</p>
+                            <p class="card-text-muted mb-4" id="detailDesc">Deskripsi produk di sini.</p>
                             
-                            <h6 class="fw-bold mt-3 mb-2 border-bottom border-secondary pb-2">Spesifikasi Teknis</h6>
-                            <ul class="list-unstyled card-text-muted small lh-lg mb-4" id="detailSpecs">
-                                </ul>
+                            <h6 class="fw-bold mb-3 border-bottom border-secondary pb-2">Spesifikasi Lengkap</h6>
                             
-                            <div class="mt-auto pt-3 border-top border-secondary">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <ul class="list-unstyled card-text-muted small lh-lg" id="detailSpecsLeft"></ul>
+                                </div>
+                                <div class="col-sm-6">
+                                    <ul class="list-unstyled card-text-muted small lh-lg" id="detailSpecsRight"></ul>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-auto pt-4 border-top border-secondary">
                                 <button id="detailAddToCartBtn" class="btn btn-lenovo w-100 py-3 rounded-pill fs-6 fw-bold">
                                     <i class="bi bi-cart-plus me-2"></i> Tambahkan ke Keranjang
                                 </button>
@@ -515,29 +527,29 @@
     </div>
 
     <script>
-        // --- 1. ENTERPRISE DATABASE ---
+        // --- 1. ENTERPRISE DATABASE (DIPERBARUI DENGAN KAMERA, AUDIO, & PORT) ---
         const products = [
             // THINKPAD
-            { id: 101, name: "ThinkPad X1 Carbon Gen 11", category: "thinkpad", sub: "X Series", desc: "Flagship laptop bisnis berbahan serat karbon ultra ringan.", price: 32500000, img: "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?auto=format&fit=crop&q=80&w=600", specs: { cpu: "Intel Core i7-1355U", ram: "16GB LPDDR5", storage: "1TB PCIe Gen4 SSD", display: "14\" WUXGA (1920x1200) IPS", gpu: "Intel Iris Xe Graphics" } },
-            { id: 102, name: "ThinkPad T14 Gen 4", category: "thinkpad", sub: "T Series", desc: "Kuda beban korporat, seimbang antara performa dan durabilitas.", price: 21000000, img: "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?auto=format&fit=crop&q=80&w=600", specs: { cpu: "AMD Ryzen 7 PRO 7840U", ram: "16GB DDR5", storage: "512GB NVMe SSD", display: "14\" WUXGA IPS Anti-glare", gpu: "AMD Radeon 780M" } },
-            { id: 103, name: "ThinkPad P16 Gen 2", category: "thinkpad", sub: "P Series", desc: "Mobile workstation bertenaga monster untuk rendering 3D.", price: 45000000, img: "https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?auto=format&fit=crop&q=80&w=600", specs: { cpu: "Intel Core i9-13980HX", ram: "64GB DDR5 ECC", storage: "2TB PCIe Gen4 SSD", display: "16\" WQUXGA (3840x2400) OLED", gpu: "NVIDIA RTX 4000 Ada Generation" } },
-            { id: 104, name: "ThinkPad E14 Gen 5", category: "thinkpad", sub: "E Series", desc: "Laptop bisnis entry-level tangguh dengan keamanan enterprise.", price: 14500000, img: "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?auto=format&fit=crop&q=80&w=600", specs: { cpu: "Intel Core i5-1335U", ram: "8GB DDR4 (Upgradable)", storage: "512GB SSD", display: "14\" FHD IPS", gpu: "Intel UHD Graphics" } },
+            { id: 101, name: "ThinkPad X1 Carbon Gen 11", category: "thinkpad", sub: "X Series", desc: "Flagship laptop bisnis berbahan serat karbon ultra ringan.", price: 32500000, img: "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?auto=format&fit=crop&q=80&w=600", specs: { cpu: "Intel Core i7-1355U", ram: "16GB LPDDR5", storage: "1TB PCIe Gen4 SSD", display: "14\" WUXGA (1920x1200) IPS", gpu: "Intel Iris Xe Graphics", camera: "1080p FHD RGB+IR", audio: "Dolby Atmos Speaker System", ports: "2x Thunderbolt 4, 2x USB-A 3.2, 1x HDMI 2.1, 1x Audio Jack" } },
+            { id: 102, name: "ThinkPad T14 Gen 4", category: "thinkpad", sub: "T Series", desc: "Kuda beban korporat, seimbang antara performa dan durabilitas.", price: 21000000, img: "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?auto=format&fit=crop&q=80&w=600", specs: { cpu: "AMD Ryzen 7 PRO 7840U", ram: "16GB DDR5", storage: "512GB NVMe SSD", display: "14\" WUXGA IPS Anti-glare", gpu: "AMD Radeon 780M", camera: "5MP IR Camera dengan Privacy Shutter", audio: "Stereo speakers, Dolby Audio", ports: "2x USB-C (USB4), 2x USB-A, 1x HDMI, 1x RJ45" } },
+            { id: 103, name: "ThinkPad P16 Gen 2", category: "thinkpad", sub: "P Series", desc: "Mobile workstation bertenaga monster untuk rendering 3D.", price: 45000000, img: "https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?auto=format&fit=crop&q=80&w=600", specs: { cpu: "Intel Core i9-13980HX", ram: "64GB DDR5 ECC", storage: "2TB PCIe Gen4 SSD", display: "16\" WQUXGA (3840x2400) OLED", gpu: "NVIDIA RTX 4000 Ada", camera: "1080p FHD IR", audio: "High Definition (HD) Audio, Realtek", ports: "2x Thunderbolt 4, 2x USB-A 3.2, 1x USB-C, 1x SD Reader" } },
+            { id: 104, name: "ThinkPad E14 Gen 5", category: "thinkpad", sub: "E Series", desc: "Laptop bisnis entry-level tangguh dengan keamanan enterprise.", price: 14500000, img: "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?auto=format&fit=crop&q=80&w=600", specs: { cpu: "Intel Core i5-1335U", ram: "8GB DDR4 (Upgradable)", storage: "512GB SSD", display: "14\" FHD IPS", gpu: "Intel UHD Graphics", camera: "1080p FHD dengan Shutter", audio: "Stereo speakers, Dolby Atmos", ports: "1x Thunderbolt 4, 1x USB-C, 1x USB-A, 1x HDMI, RJ45" } },
             
             // IDEAPAD
-            { id: 201, name: "IdeaPad Slim 5i", category: "ideapad", sub: "Slim Series", desc: "Sasis metal elegan dengan performa mumpuni untuk multitasking.", price: 12500000, img: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&q=80&w=600", specs: { cpu: "Intel Core i5-13420H", ram: "16GB LPDDR5", storage: "512GB M.2 SSD", display: "14\" WUXGA OLED", gpu: "Intel UHD Graphics" } },
-            { id: 202, name: "IdeaPad Flex 5", category: "ideapad", sub: "Flex Series", desc: "2-in-1 touchscreen adaptif untuk presentasi dan hiburan.", price: 14000000, img: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&q=80&w=600", specs: { cpu: "AMD Ryzen 7 7730U", ram: "16GB LPDDR4x", storage: "512GB SSD", display: "14\" WUXGA Touchscreen + Stylus", gpu: "AMD Radeon Graphics" } },
-            { id: 203, name: "IdeaPad Pro 5i", category: "ideapad", sub: "Pro Series", desc: "Performa tinggi untuk kreator konten dan desainer pemula.", price: 18500000, img: "https://images.unsplash.com/photo-1537498425277-c273d32ef743?auto=format&fit=crop&q=80&w=600", specs: { cpu: "Intel Core i7-13700H", ram: "16GB LPDDR5", storage: "1TB Gen4 SSD", display: "16\" 2.5K 120Hz IPS", gpu: "NVIDIA GeForce RTX 3050 6GB" } },
-            { id: 204, name: "IdeaPad Slim 3", category: "ideapad", sub: "Slim Series", desc: "Solusi terjangkau nan andal untuk pelajar dan mahasiswa.", price: 8500000, img: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&q=80&w=600", specs: { cpu: "AMD Ryzen 3 7320U", ram: "8GB LPDDR5", storage: "512GB SSD", display: "14\" FHD TN", gpu: "AMD Radeon 610M" } },
+            { id: 201, name: "IdeaPad Slim 5i", category: "ideapad", sub: "Slim Series", desc: "Sasis metal elegan dengan performa mumpuni untuk multitasking.", price: 12500000, img: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&q=80&w=600", specs: { cpu: "Intel Core i5-13420H", ram: "16GB LPDDR5", storage: "512GB M.2 SSD", display: "14\" WUXGA OLED", gpu: "Intel UHD Graphics", camera: "1080p FHD", audio: "2x 2W user-facing speakers", ports: "2x USB-C, 2x USB-A, 1x HDMI, MicroSD Reader" } },
+            { id: 202, name: "IdeaPad Flex 5", category: "ideapad", sub: "Flex Series", desc: "2-in-1 touchscreen adaptif untuk presentasi dan hiburan.", price: 14000000, img: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&q=80&w=600", specs: { cpu: "AMD Ryzen 7 7730U", ram: "16GB LPDDR4x", storage: "512GB SSD", display: "14\" WUXGA Touchscreen + Stylus", gpu: "AMD Radeon Graphics", camera: "1080p FHD", audio: "Dolby Audio", ports: "1x USB-C, 2x USB-A, 1x HDMI, 1x Audio Combo" } },
+            { id: 203, name: "IdeaPad Pro 5i", category: "ideapad", sub: "Pro Series", desc: "Performa tinggi untuk kreator konten dan desainer pemula.", price: 18500000, img: "https://images.unsplash.com/photo-1537498425277-c273d32ef743?auto=format&fit=crop&q=80&w=600", specs: { cpu: "Intel Core i7-13700H", ram: "16GB LPDDR5", storage: "1TB Gen4 SSD", display: "16\" 2.5K 120Hz IPS", gpu: "NVIDIA GeForce RTX 3050 6GB", camera: "1080p FHD IR", audio: "Stereo speakers, Dolby Atmos", ports: "1x Thunderbolt 4, 1x USB-C, 2x USB-A, 1x SD Card Reader" } },
+            { id: 204, name: "IdeaPad Slim 3", category: "ideapad", sub: "Slim Series", desc: "Solusi terjangkau nan andal untuk pelajar dan mahasiswa.", price: 8500000, img: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&q=80&w=600", specs: { cpu: "AMD Ryzen 3 7320U", ram: "8GB LPDDR5", storage: "512GB SSD", display: "14\" FHD TN", gpu: "AMD Radeon 610M", camera: "720p HD", audio: "Dolby Audio", ports: "1x USB-C 3.2, 2x USB-A 3.2, 1x HDMI, Audio Jack" } },
 
             // LEGION
-            { id: 301, name: "Legion Pro 7i", category: "legion", sub: "Pro Series", desc: "Mesin gaming hardcore dengan RTX 4080 dan ColdFront.", price: 48000000, img: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&q=80&w=600", specs: { cpu: "Intel Core i9-13900HX", ram: "32GB DDR5 5600MHz", storage: "2TB PCIe Gen4", display: "16\" WQXGA 240Hz HDR", gpu: "NVIDIA GeForce RTX 4080 12GB (175W)" } },
-            { id: 302, name: "Legion Slim 7i", category: "legion", sub: "Slim Series", desc: "Laptop gaming ultra-tipis berbahan CNC aluminium premium.", price: 34000000, img: "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&q=80&w=600", specs: { cpu: "Intel Core i9-13900H", ram: "16GB DDR5", storage: "1TB SSD", display: "16\" 3.2K 165Hz IPS", gpu: "NVIDIA GeForce RTX 4070 8GB" } },
-            { id: 303, name: "Legion Pro 5", category: "legion", sub: "Pro Series", desc: "Rasio harga-dan-performa terbaik untuk gaming e-sports.", price: 26000000, img: "https://images.unsplash.com/photo-1600861194942-f88481e1d8ba?auto=format&fit=crop&q=80&w=600", specs: { cpu: "AMD Ryzen 7 7745HX", ram: "16GB DDR5", storage: "1TB NVMe", display: "16\" WQXGA 165Hz", gpu: "NVIDIA GeForce RTX 4060 8GB" } },
+            { id: 301, name: "Legion Pro 7i", category: "legion", sub: "Pro Series", desc: "Mesin gaming hardcore dengan RTX 4080 dan ColdFront.", price: 48000000, img: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&q=80&w=600", specs: { cpu: "Intel Core i9-13900HX", ram: "32GB DDR5 5600MHz", storage: "2TB PCIe Gen4", display: "16\" WQXGA 240Hz HDR", gpu: "NVIDIA GeForce RTX 4080 12GB", camera: "1080p FHD dengan E-Shutter", audio: "Harman Super Linear Speaker", ports: "2x Thunderbolt 4, 4x USB-A, 1x HDMI 2.1, 1x RJ45" } },
+            { id: 302, name: "Legion Slim 7i", category: "legion", sub: "Slim Series", desc: "Laptop gaming ultra-tipis berbahan CNC aluminium premium.", price: 34000000, img: "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&q=80&w=600", specs: { cpu: "Intel Core i9-13900H", ram: "16GB DDR5", storage: "1TB SSD", display: "16\" 3.2K 165Hz IPS", gpu: "NVIDIA GeForce RTX 4070 8GB", camera: "1080p FHD", audio: "Harman Speakers, Nahimic Audio", ports: "1x Thunderbolt 4, 1x USB-C, 3x USB-A, 1x SD Reader" } },
+            { id: 303, name: "Legion Pro 5", category: "legion", sub: "Pro Series", desc: "Rasio harga-dan-performa terbaik untuk gaming e-sports.", price: 26000000, img: "https://images.unsplash.com/photo-1600861194942-f88481e1d8ba?auto=format&fit=crop&q=80&w=600", specs: { cpu: "AMD Ryzen 7 7745HX", ram: "16GB DDR5", storage: "1TB NVMe", display: "16\" WQXGA 165Hz", gpu: "NVIDIA GeForce RTX 4060 8GB", camera: "1080p FHD", audio: "Nahimic Audio Setup", ports: "2x USB-C 3.2, 4x USB-A, 1x HDMI 2.1, 1x RJ45" } },
 
             // YOGA
-            { id: 401, name: "Yoga Book 9i", category: "yoga", sub: "Premium", desc: "Dua layar OLED memukau untuk kreativitas tanpa batas.", price: 35000000, img: "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&q=80&w=600", specs: { cpu: "Intel Core i7-1355U", ram: "16GB LPDDR5x", storage: "1TB SSD", display: "Dual 13.3\" 2.8K OLED Touch", gpu: "Intel Iris Xe Graphics" } },
-            { id: 402, name: "Yoga Slim 7i Carbon", category: "yoga", sub: "Slim Series", desc: "Bobot di bawah 1Kg, sasis paduan magnesium dan serat karbon.", price: 22000000, img: "https://images.unsplash.com/photo-1531297172868-9f1c1ae04461?auto=format&fit=crop&q=80&w=600", specs: { cpu: "Intel Core i7-1360P", ram: "16GB LPDDR5", storage: "1TB Gen4 SSD", display: "13.3\" 2.5K 90Hz", gpu: "Intel Iris Xe Graphics" } },
-            { id: 403, name: "Yoga Pro 9i", category: "yoga", sub: "Pro Series", desc: "Laptop idaman kreator profesional dengan layar Mini-LED.", price: 32000000, img: "https://images.unsplash.com/photo-1504707748692-419802cf939d?auto=format&fit=crop&q=80&w=600", specs: { cpu: "Intel Core i9-13905H", ram: "32GB LPDDR5x", storage: "1TB Gen4 SSD", display: "16\" 3.2K Mini-LED 165Hz Touch", gpu: "NVIDIA GeForce RTX 4060" } }
+            { id: 401, name: "Yoga Book 9i", category: "yoga", sub: "Premium", desc: "Dua layar OLED memukau untuk kreativitas tanpa batas.", price: 35000000, img: "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&q=80&w=600", specs: { cpu: "Intel Core i7-1355U", ram: "16GB LPDDR5x", storage: "1TB SSD", display: "Dual 13.3\" 2.8K OLED Touch", gpu: "Intel Iris Xe Graphics", camera: "5MP IR Camera", audio: "Bowers & Wilkins Speakers", ports: "3x Thunderbolt 4 (USB Type-C)" } },
+            { id: 402, name: "Yoga Slim 7i Carbon", category: "yoga", sub: "Slim Series", desc: "Bobot di bawah 1Kg, sasis paduan magnesium dan serat karbon.", price: 22000000, img: "https://images.unsplash.com/photo-1531297172868-9f1c1ae04461?auto=format&fit=crop&q=80&w=600", specs: { cpu: "Intel Core i7-1360P", ram: "16GB LPDDR5", storage: "1TB Gen4 SSD", display: "13.3\" 2.5K 90Hz", gpu: "Intel Iris Xe Graphics", camera: "720p HD IR", audio: "Harman Kardon Speakers", ports: "1x Thunderbolt 4, 1x USB-C 3.2 Gen 2" } },
+            { id: 403, name: "Yoga Pro 9i", category: "yoga", sub: "Pro Series", desc: "Laptop idaman kreator profesional dengan layar Mini-LED.", price: 32000000, img: "https://images.unsplash.com/photo-1504707748692-419802cf939d?auto=format&fit=crop&q=80&w=600", specs: { cpu: "Intel Core i9-13905H", ram: "32GB LPDDR5x", storage: "1TB Gen4 SSD", display: "16\" 3.2K Mini-LED 165Hz Touch", gpu: "NVIDIA GeForce RTX 4060", camera: "5MP IR", audio: "6x Premium Speakers, Dolby Atmos", ports: "1x Thunderbolt 4, 2x USB-A 3.2, 1x HDMI, SD Reader" } }
         ];
 
         // --- 2. LOCAL STORAGE STATE MANAGEMENT ---
@@ -612,7 +624,7 @@
             });
         }
 
-        // --- 4. MODAL DETAIL PRODUK ---
+        // --- 4. MODAL DETAIL PRODUK (DIPERBARUI) ---
         function openDetailModal(id) {
             const p = products.find(prod => prod.id === id);
             
@@ -622,12 +634,20 @@
             document.getElementById('detailPrice').innerText = formatRupiah(p.price);
             document.getElementById('detailDesc').innerText = p.desc;
             
-            document.getElementById('detailSpecs').innerHTML = `
-                <li><i class="bi bi-cpu me-2 text-danger"></i> <strong>Prosesor:</strong> ${p.specs.cpu}</li>
-                <li><i class="bi bi-memory me-2 text-danger"></i> <strong>RAM:</strong> ${p.specs.ram}</li>
-                <li><i class="bi bi-device-hdd me-2 text-danger"></i> <strong>Storage:</strong> ${p.specs.storage}</li>
-                <li><i class="bi bi-display me-2 text-danger"></i> <strong>Layar:</strong> ${p.specs.display}</li>
-                <li><i class="bi bi-gpu-card me-2 text-danger"></i> <strong>Grafis:</strong> ${p.specs.gpu}</li>
+            // Render Spesifikasi Kiri (Utama)
+            document.getElementById('detailSpecsLeft').innerHTML = `
+                <li class="mb-2"><i class="bi bi-cpu me-2 text-danger"></i> <strong>Prosesor:</strong> ${p.specs.cpu}</li>
+                <li class="mb-2"><i class="bi bi-memory me-2 text-danger"></i> <strong>RAM:</strong> ${p.specs.ram}</li>
+                <li class="mb-2"><i class="bi bi-device-hdd me-2 text-danger"></i> <strong>Storage:</strong> ${p.specs.storage}</li>
+                <li class="mb-2"><i class="bi bi-display me-2 text-danger"></i> <strong>Layar:</strong> ${p.specs.display}</li>
+            `;
+
+            // Render Spesifikasi Kanan (Grafis, Kamera, Audio, Port)
+            document.getElementById('detailSpecsRight').innerHTML = `
+                <li class="mb-2"><i class="bi bi-gpu-card me-2 text-danger"></i> <strong>Grafis:</strong> ${p.specs.gpu}</li>
+                <li class="mb-2"><i class="bi bi-camera-video me-2 text-danger"></i> <strong>Kamera:</strong> ${p.specs.camera}</li>
+                <li class="mb-2"><i class="bi bi-speaker me-2 text-danger"></i> <strong>Audio:</strong> ${p.specs.audio}</li>
+                <li class="mb-2"><i class="bi bi-usb me-2 text-danger"></i> <strong>Port:</strong> ${p.specs.ports}</li>
             `;
 
             // Setup tombol beli di dalam modal
@@ -661,7 +681,12 @@
         }
 
         function removeCartItem(id) {
-            cart = cart.filter(c => c.id !== id);
+            const item = cart.find(c => c.id === id);
+            if(item.qty > 1) {
+                item.qty--;
+            } else {
+                cart = cart.filter(c => c.id !== id);
+            }
             saveCart();
         }
 
